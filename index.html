@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Conf 2025 - Gerador de Ticket</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/responsivo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="main-container">
+        <section id="form-section" class="card">
+            <header class="card-header">
+                <img src="src/images/logo-full.svg" alt="Coding Conf Logo" class="logo">
+                <h1>Sua jornada para a Coding Conf 2025 começa aqui!</h1>
+                <p>Garanta seu lugar na maior conferência de programação do próximo ano.</p>
+            </header>
+
+            <form id="ticket-form" novalidate>
+                <div class="form-group">
+                    <label for="avatar-input" class="form-label">Upload Avatar</label>
+                    <div id="avatar-dropzone" class="avatar-uploader">
+                        <div class="upload-prompt">
+                            <img src="src/images/icon-upload.svg" alt="">
+                            <span>Arraste e solte ou clique para enviar</span>
+                        </div>
+                        <div class="upload-preview" style="display: none;">
+                            <img id="avatar-preview-img" src="#" alt="Avatar Preview">
+                            <div class="preview-actions">
+                                <button type="button" id="remove-image-btn" class="secondary-btn">Remover</button>
+                                <button type="button" id="change-image-btn" class="secondary-btn">Alterar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="file" id="avatar-input" accept="image/jpeg, image/png" hidden>
+                    <small class="help-text">Envie sua foto (JPG ou PNG, tamanho máximo: 500KB).</small>
+                    <small class="error-message" id="avatar-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="fullName" class="form-label">Nome Completo</label>
+                    <input type="text" id="fullName" placeholder=" " required>
+                    <small class="error-message" id="fullName-error"></small>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Endereço de E-mail</label>
+                    <input type="email" id="email" placeholder="exemplo@mail.com" required>
+                    <small class="error-message" id="email-error"></small>
+                </div>
+                <div class="form-group">
+                    <label for="github" class="form-label">Usuário do GitHub</label>
+                    <input type="text" id="github" placeholder="@usuario" required>
+                    <small class="error-message" id="github-error"></small>
+                </div>
+
+                <button type="submit" class="primary-btn">Gerar Ticket</button>
+            </form>
+        </section>
+
+        <section id="ticket-section" class="card" style="display: none;">
+                <header class="card-header">
+                <img src="src/images/logo-full.svg" alt="Coding Conf Logo" class="logo">
+                <h1>Parabéns, <span id="ticket-name"></span>! Seu ticket está pronto.</h1>
+                <p>Enviamos seu ticket para <strong id="ticket-email"></strong> e mandaremos atualizações sobre o evento.</p>
+            </header>
+
+            <div class="ticket">
+                <div class="ticket-header">
+                    <div class="ticket-logo">
+                        <img src="src/images/logo-mark.svg" alt="Coding Conf Logo" class="logo-small">
+                        <span>Coding Conf</span>
+                    </div>
+                    <div class="ticket-info">
+                        <span>Jan 31, 2025 / Salvador, BA</span>
+                    </div>
+                </div>
+                <div class="ticket-number" id="ticket-number"><span>#01609</span></div>
+                <div class="ticket-body">
+                    <div class="attendee-info">
+                        <img id="ticket-avatar" src="" alt="Avatar do Participante" class="attendee-avatar">
+                        <div class="attendee-details">
+                            <span id="ticket-fullname" class="attendee-name"></span>
+                            <span id="ticket-github" class="attendee-github">
+                                <span></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="src/js/script.js"></script>
+</body>
+</html>

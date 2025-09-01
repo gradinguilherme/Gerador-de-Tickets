@@ -1,0 +1,299 @@
+:root {
+    --primary-color: #ff8c6b;
+    --primary-hover-color: #ffac94;
+    --text-color: #e0e0e0;
+    --text-secondary-color: #a0a0b0;
+    --input-bg-color: rgba(255, 255, 255, 0.05);
+    --input-border-color: rgba(255, 255, 255, 0.2);
+    --input-focus-border: #8c52ff;
+    --error-color: #ff5555;
+    --card-bg-color: #2c1a4d;
+    --ticket-color: #5d3a9e;
+    --font-family: 'Inconsolata', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background-image: url('../images/background-desktop.png');
+}
+
+
+/* MAIN */
+.main-container {
+    width: 100%;
+    max-width: 650px;
+}
+
+.card {
+    background-color: transparent;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.card-header {
+    margin-bottom: 2.5rem;
+}
+
+.card-header .logo {
+    width: 250px; 
+    height: auto; 
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.card-header p {
+    color: var(--text-secondary-color);
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* FORMULÁRIO */
+#ticket-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    text-align: left;
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--input-bg-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder {
+    color: var(--text-secondary-color);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 3px rgba(140, 82, 255, 0.3);
+}
+
+input[type="text"].error,
+input[type="email"].error {
+    border-color: var(--error-color);
+}
+
+.help-text {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-secondary-color);
+    margin-top: 0.5rem;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+/* UPLOAD DE AVATAR */
+.avatar-uploader {
+    border: 2px dashed var(--input-border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.avatar-uploader.dragging {
+    border-color: var(--input-focus-border);
+    background-color: rgba(140, 82, 255, 0.1);
+}
+
+.avatar-uploader.error {
+    border-color: var(--error-color);
+}
+
+.upload-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-secondary-color);
+}
+
+.upload-prompt .upload-icon {
+    color: var(--primary-color);
+}
+
+.upload-preview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#avatar-preview-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.preview-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* BOTÕES */
+.primary-btn, .secondary-btn {
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: #1e1143;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--input-border-color);
+}
+
+.secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* TICKET GERADO */
+#ticket-section h1 span,
+#ticket-section p strong {
+    color: var(--primary-color);
+}
+
+.ticket {
+    margin-top: 2rem;
+    text-align: left;
+    padding: 1.5rem;
+    background-image: url('../images/pattern-ticket.svg');
+    height: 300px;
+    width: 600px;
+    background-repeat: no-repeat;
+}
+
+.ticket-header {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.ticket-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.logo-small {
+    width: 40px;   
+    height: auto;
+}
+
+.ticket-info {
+    padding-left: 50px;
+    padding-top: 10px;
+    font-size: 1rem;
+    color: var(--text-secondary-color);
+}
+
+.ticket-body {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.attendee-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.attendee-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 15%;
+    object-fit: cover;
+}
+
+.attendee-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.attendee-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.attendee-github {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary-color);
+}
+
+.ticket-number {
+    width: 80px;
+    font-weight: 700;
+    color: var(--text-secondary-color);
+    transform: rotate(90deg);
+    white-space: nowrap;
+    margin-left: 480px;
+    margin-top: 60px;
+}
